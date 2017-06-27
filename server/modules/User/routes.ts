@@ -1,5 +1,5 @@
 import { Request, Response } from "express"
-import UserController from '../../modules/user/controller'
+import UserController from '../../modules/User/controller'
 let userController
 
 class UserRoutes {

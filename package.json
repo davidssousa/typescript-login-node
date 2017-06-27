@@ -4,10 +4,10 @@
   "description": "Curso realizado no site udemy instrutor Raphel de Assuncao",
   "main": "index.js",
   "scripts": {
-    "start": "Set NODE_ENV=development && ./node_modules/.bin/ts-node ./server/server.ts",
-    "builded": "Set NODE_ENV=development && node ./build/server/server.js",
-    "unit-test": "set NODE_ENV=test && mocha --opts ./build/tests/unit/config/mocha.opts ./build/tests/unit/unit.test.js",
-    "integration-test": "set NODE_ENV=test && mocha --opts ./build/tests/integration/config/mocha.opts ./build/tests/integration/integration.test.js"
+    "start": "NODE_ENV=development  ./node_modules/.bin/ts-node ./server/server.ts",
+    "builded": "NODE_ENV=development  node ./build/server/server.js",
+    "unit-test": "NODE_ENV=test  mocha --opts ./build/tests/unit/config/mocha.opts ./build/tests/unit/unit.test.js",
+    "integration-test": "NODE_ENV=test  mocha --opts ./build/tests/integration/config/mocha.opts ./build/tests/integration/integration.test.js"
   },
   "keywords": [],
   "author": "",

@@ -9,9 +9,19 @@ var env       = config.env || 'development';
 var db        = {};
 
 if (config.dbUrl) {
-  var sequelize = new Sequelize(process.env[config.dbUrl]);
+  var sequelize = new Sequelize(config.dbUrl);
 } else {
-  var sequelize = new Sequelize(config.database, config.username, config.password, config);
+  var sequelize = new Sequelize(config.database, config.username, config.password, {
+  host: 'localhost',
+  dialect: 'postgres',
+  pool: {
+    max: 5,
+    min: 0,
+    idle: 10000
+  },
+  // SQLite only
+  //storage: 'path/to/database.sqlite'
+});
 }
 
 fs

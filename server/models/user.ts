@@ -2,7 +2,7 @@ export default function (sequelize, DataTypes) {
     const User = sequelize.define('User', {
         id: {
             type: DataTypes.INTEGER,
-            primarykey: true,
+            primaryKey: true,
             autoIncrement: true
         },
         name: {
@@ -15,7 +15,6 @@ export default function (sequelize, DataTypes) {
         email: {
             type: DataTypes.STRING,
             allowNull: false,
-            unique: true,
             validate: {
                 notEmpty: true
             }
