@@ -5,7 +5,6 @@ describe('Testes de Itegracao', () => {
 
     'use strict'
 
-    const config = require('./config/config')
     const model = require('../../server/models')
 
     let id

@@ -12,16 +12,13 @@ if (config.dbUrl) {
   var sequelize = new Sequelize(config.dbUrl);
 } else {
   var sequelize = new Sequelize(config.database, config.username, config.password, {
-  host: 'localhost',
-  dialect: 'postgres',
-  pool: {
-    max: 5,
-    min: 0,
-    idle: 10000
-  },
-  // SQLite only
-  //storage: 'path/to/database.sqlite'
-});
+			dialect: config.dialect,
+			host: config.host,
+			port: config.port,
+			// dialectOptions: {
+			// 	instanceName: config.instanceName
+			// }
+	});
 }
 
 fs

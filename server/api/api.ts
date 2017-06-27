@@ -12,6 +12,7 @@ class Api {
     }
 
     middleware (): void {
+        this.app.set('port', process.env.PORT || 3000)
         this.app.use(morgan('dev'))
         this.app.use(bodyParser.urlencoded({ extended:true }))
         this.app.use(bodyParser.json())
