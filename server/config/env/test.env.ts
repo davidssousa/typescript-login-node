@@ -1,12 +1,11 @@
 module.exports = {
     env: 'test',
-    database: "dbts-test",
-    dialect: 'mssql', //postgres
-    username: 'sa',
+    db: "ts-api-test",
+    dialect: 'postgres',
+    username: 'postgres',
     password: 'lvmhde79',
     host: "localhost",
-    port: 1433,
-    dbUrl: 'mssql://sa:lvmhde79@localhost:1433/dbts-test',
-    instanceName: 'MSSQLSERVER',
+    port: 5432,
+    dbURL: 'postgres://postgres:lvmhde79@localhost:5432/ts-api-test',
     secret: 'S3cr3t'
 }

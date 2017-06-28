@@ -3,11 +3,15 @@ import * as bodyParser from 'body-parser'
 import * as morgan from 'morgan'
 import { errorHandlerApi } from "./errorHandlerApi";
 import Routes from './routes/routes'
+import AuthConfig from '../auth'
 
 class Api {
     public app: express.Application
+    public auth
+
     constructor () {
         this.app = express()
+        this.auth = AuthConfig()
         this.middleware()
     }
 
@@ -17,10 +21,12 @@ class Api {
         this.app.use(bodyParser.urlencoded({ extended:true }))
         this.app.use(bodyParser.json())
         this.app.use(errorHandlerApi)
-        this.router(this.app)
+        this.app.use(this.auth.initialize())
+        this.router(this.app, this.auth)
+
     }
-    private router (app: express.Application): void {
-        new Routes(app)
+    private router (app: express.Application, auth: any): void {
+        new Routes(app, auth)
     }
 }
 
